@@ -1,0 +1,42 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww12600\viewh7280\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 RewriteEngine on\
+\
+RewriteCond %\{REQUEST_FILENAME\} !-f\
+RewriteCond %\{REQUEST_FILENAME\} !-d\
+\
+<IfModule mod_rewrite.c>\
+RewriteEngine on\
+RewriteCond %\{HTTPS\} off\
+RewriteRule (.*) https://%\{HTTP_HOST\}%\{REQUEST_URI\} [R,L]\
+</IfModule>\
+\
+RewriteCond %\{REQUEST_URI\} ^/$\
+RewriteRule (.*) /Accueil.html [R=301,L]\
+\
+<IfModule mod_expires.c>\
+  ExpiresActive on\
+  ExpiresDefault                          "access plus 1 week"\
+  ExpiresByType image/x-icon              "access plus 1 year"\
+  ExpiresByType image/gif                 "access plus 1 month"\
+  ExpiresByType image/png                 "access plus 1 month"\
+  ExpiresByType image/jpg                 "access plus 1 month"\
+  ExpiresByType image/jpeg                "access plus 1 month"\
+  ExpiresByType video/mp4                 "access plus 1 month"\
+  ExpiresByType text/x-component          "access plus 1 month"\
+  ExpiresByType font/truetype             "access plus 1 month"\
+  ExpiresByType font/opentype             "access plus 1 month"\
+  ExpiresByType application/x-font-woff   "access plus 1 month"\
+  ExpiresByType application/vnd.ms-fontobject "access plus 1 month"\
+  ExpiresByType text/css                  "access plus 7200 seconds"\
+  ExpiresByType application/javascript    "access plus 1 year"\
+  ExpiresByType text/javascript           "access plus 1 year" \
+  ExpiresByType text/js                   "access plus 1 year"\
+  ExpiresByType application/x-javascript  "access plus 1 year" \
+  </IfModule>\
+}
